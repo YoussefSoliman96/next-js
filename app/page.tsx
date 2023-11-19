@@ -1,17 +1,31 @@
-import Image from "next/image";
-import Link from "next/link";
-import ProductCard from "./components/ProductCard";
+"use client";
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
-import { Metadata } from "next";
+import Link from "next/link";
 
-export default async function Home() {
-  const session = await getServerSession(authOptions);
+import ProductCard from "./components/ProductCard";
+import { useState } from "react";
+import dynamic from "next/dynamic";
+
+export default function Home() {
+  // const session = await getServerSession(authOptions);
+  const [isVisible, setVisible] = useState(false);
   return (
     <main>
-      <h1>Hello {session && <span>{session.user!.name}</span>}</h1>
-      <Link href="/users">Users</Link>
-      <ProductCard></ProductCard>
+      {/* <h1>Hello {session && <span>{session.user!.name}</span>}</h1> */}
+      <h1>Hello!</h1>
+      <button
+      // onClick={async () => {
+      //   const x = (await import("lodash")).default;
+
+      //   const users = [{ name: "c" }, { name: "b" }, { name: "a" }];
+      //   const sorted = _.orderBy(users, ["name"]);
+      //   console.log(sorted);
+      // }}
+      >
+        Show
+      </button>
+      {/* <Link href="/users">Users</Link>
+      <ProductCard></ProductCard> */}
       {/* <Image
         src="https://bit.ly/react-cover"
         alt="photo"
